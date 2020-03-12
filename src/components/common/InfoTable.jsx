@@ -7,19 +7,19 @@ function InfoTable({ senderName, receiverName, invoiceNo, receiverAddr }) {
       <table>
         <tbody>
           <tr>
-            <td>운송장번호</td>
+            <td className="infoText">운송장번호</td>
             <td>{invoiceNo}</td>
           </tr>
           <tr>
-            <td>보낸 사람</td>
+            <td className="infoText">보낸 사람</td>
             <td>{senderName || "보낸이 정보 없음."}</td>
           </tr>
           <tr>
-            <td>받는 사람</td>
+            <td className="infoText">받는 사람</td>
             <td>{receiverName || "받는이 정보 없음."}</td>
           </tr>
           <tr>
-            <td>수령 주소</td>
+            <td className="infoText">수령 주소</td>
             <td>{receiverAddr || "주소 정보 없음."}</td>
           </tr>
         </tbody>

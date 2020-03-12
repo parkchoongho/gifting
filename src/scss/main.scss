@@ -27,6 +27,20 @@
 }
 
 .infoTable {
+  margin-bottom: 20px;
+
+  h1 {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+}
+
+.infoText {
+  font-weight: bold;
+}
+
+.stateTable {
   h1 {
     margin-bottom: 10px;
     font-weight: bold;
@@ -46,7 +60,13 @@ table {
     background-color: #e3f2fd;
   }
 
-  th,
+  th {
+    font-weight: bold;
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+    text-align: center;
+  }
+
   td {
     border-bottom: 1px solid #444444;
     padding: 10px;

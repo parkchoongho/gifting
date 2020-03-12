@@ -40,10 +40,14 @@ class Main extends Component {
   };
 
   handleChange = ({ currentTarget: input }) => {
-    const sendingData = { ...this.state.sendingData };
-    sendingData[input.name] = input.value;
+    const re = /^[0-9\b]+$/;
+    const { value, name } = input;
 
-    this.setState({ sendingData });
+    if (value === "" || re.test(value)) {
+      const sendingData = { ...this.state.sendingData };
+      sendingData[name] = value;
+      this.setState({ sendingData });
+    }
   };
 
   render() {
