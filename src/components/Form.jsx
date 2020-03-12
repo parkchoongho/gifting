@@ -32,7 +32,7 @@ class Form extends Component {
 
     return (
       <>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="submitForm">
           {this.renderSelect("code")}
           {this.renderInput("invoice", "text")}
           {this.renderButton("검색")}

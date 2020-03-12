@@ -10,7 +10,12 @@ class Select extends Component {
   render() {
     const { name, value, onChange } = this.props;
     return (
-      <select name={name} value={value} onChange={onChange}>
+      <select
+        name={name}
+        value={value}
+        onChange={onChange}
+        className="submitSelect"
+      >
         {this.renderOption("", "회사선택")}
         {this.renderOption("04", "CJ 대한통운")}
         {this.renderOption("05", "한진택배")}
