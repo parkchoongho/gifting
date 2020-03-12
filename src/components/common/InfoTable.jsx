@@ -1,6 +1,6 @@
 import React from "react";
 
-function Table({ senderName, receiverName, invoiceNo, receiverAddr }) {
+function InfoTable({ senderName, receiverName, invoiceNo, receiverAddr }) {
   return (
     <table>
       <tbody>
@@ -10,19 +10,19 @@ function Table({ senderName, receiverName, invoiceNo, receiverAddr }) {
         </tr>
         <tr>
           <td>보낸 사람</td>
-          <td>{senderName || "보낸이"}</td>
+          <td>{senderName || "보낸이 정보 없음."}</td>
         </tr>
         <tr>
           <td>받는 사람</td>
-          <td>{receiverName || "받는이"}</td>
+          <td>{receiverName || "받는이 정보 없음."}</td>
         </tr>
         <tr>
           <td>수령 주소</td>
-          <td>{receiverAddr || "주소가 없음"}</td>
+          <td>{receiverAddr || "주소 정보 없음."}</td>
         </tr>
       </tbody>
     </table>
   );
 }
 
-export default Table;
+export default InfoTable;

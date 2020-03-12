@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Table from "./common/Table";
+import InfoTable from "./common/InfoTable";
 
 class DeliveryInfo extends Component {
   render() {
@@ -11,7 +11,7 @@ class DeliveryInfo extends Component {
     return (
       <>
         {this.props.deliveryInfo && (
-          <Table
+          <InfoTable
             senderName={senderName}
             receiverName={receiverName}
             invoiceNo={invoiceNo}

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-import DeliveryInfo from "./DeliveryInfo";
 import Form from "./Form";
+import DeliveryInfo from "./DeliveryInfo";
+import DeliveryState from "./DeliveryState";
 
 import { findTracking } from "../services/trackingInfo";
 
@@ -11,7 +12,7 @@ class Main extends Component {
     this.state = {
       sendingData: { code: "", invoice: "" },
       deliveryInfo: "",
-      errors: {}
+      errors: ""
     };
   }
 
@@ -20,14 +21,19 @@ class Main extends Component {
 
     try {
       const { sendingData } = this.state;
-      const { data: trackingInfo } = await findTracking(
+      const { data } = await findTracking(
         sendingData.code,
         sendingData.invoice
       );
-      console.log(trackingInfo);
 
-      this.setState({ deliveryInfo: trackingInfo });
-      console.log(this.state);
+      if (data.msg) {
+        this.setState({ errors: data.msg, deliveryInfo: "" });
+        return;
+      }
+
+      const trackingInfo = data;
+
+      this.setState({ deliveryInfo: trackingInfo, errors: "" });
     } catch (error) {
       console.log(error);
     }
@@ -41,7 +47,7 @@ class Main extends Component {
   };
 
   render() {
-    const { deliveryInfo, sendingData } = this.state;
+    const { deliveryInfo, sendingData, errors } = this.state;
     return (
       <>
         <Form
@@ -49,7 +55,13 @@ class Main extends Component {
           onChange={e => this.handleChange(e)}
           onSubmit={e => this.handleSubmit(e)}
         />
-        <DeliveryInfo deliveryInfo={deliveryInfo} />
+        {errors ||
+          (deliveryInfo && (
+            <>
+              <DeliveryInfo deliveryInfo={deliveryInfo} />
+              <DeliveryState deliveryInfo={deliveryInfo} />
+            </>
+          ))}
       </>
     );
   }
